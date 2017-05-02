@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 #include "UndirectedGraph.hpp"
 #include "../lib/UndirectedGraph.cpp"
 
@@ -40,16 +41,54 @@ int main()
 		cout<<endl;
 	}
 
-	UndirectedGraph graph(n*m);
+	UndirectedGraph graph(n*m,'l');
 
-	int dir = {-1,0,1};
+	int dir[] = {-1,0,1};
+	srand(time(NULL));
 	for(int i=1;i<=n;i++)
 	{
 		for(int j=1;j<=m;j++)
 		{
-
+			if(maze[i][j] == 'X')
+				continue;
+			int startx = rand()%3;
+			int starty = rand()%3;
+			for(int k=startx;k<startx+3;k++)
+			{
+				for(int l=starty;l<starty+3;l++)
+				{
+					int nx = dir[k%3] + i;
+					int ny = dir[l%3] + j;
+					if(maze[nx][ny] == 'X' || (nx == i && ny == j))
+						continue;
+					graph.add((i-1)*m+(j-1),(nx-1)*m+(ny-1));
+				}
+			}
 		}
 	}
+
+	int src = (sx-1)*m+(sy-1);
+	int des = (dx-1)*m+(dy-1);
+
+	LinearList<dfsNode> predTree;
+	predTree = graph.getDFStree(des);
+
+	if(predTree[src].pred == -1)
+	{
+		cout<<"Path does not exist\n";
+		return 0;
+	}
+
+	int i = src;
+	while(predTree[i].pred != -1)
+	{
+		int x = ((i)%m)+1;
+		int y = ((i)/m)+1;
+		cout<<y<<","<<x<<" -> ";
+		i = predTree[i].pred;
+	}
+
+	cout<<(des%m)+1<<" "<<(des/m)+1<<endl;
 
 	return 0;
 }
