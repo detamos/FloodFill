@@ -64,3 +64,8 @@ void AdjacencyMatrix :: print()
 		cout<<endl;
 	}
 }
+
+LinearList<int> AdjacencyMatrix :: getAdjacent(int i)
+{
+	return this->AdjMat[i];
+}

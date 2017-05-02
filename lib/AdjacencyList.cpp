@@ -52,3 +52,8 @@ void AdjacencyList :: print()
 		this->AdjList[i].print();
 	}
 }
+
+Node<int>* AdjacencyList :: getStart(int i)
+{
+	return this->AdjList[i].getStart();
+}

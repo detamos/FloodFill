@@ -16,6 +16,7 @@ namespace cs202
 	    void add(int i, int j);
 	    void remove(int i, int j);
 	    void print();
+	    Node<int> *getStart(int i);
 	};
 }
 #endif 
