@@ -15,21 +15,44 @@ void AbstractGraph :: dfsUtil(void (*work)(const int& ),const int &src = 0)
 			continue;
 		if(this->type == List)
 		{
-			
+			Node<int> *trav = this->AdjList.getStart(u);
+			while(trav != NULL)
+			{
+				int v = trav->data;
+				if(vis[v] == false)
+				{
+					vis[v] = true;
+					q.push(v);
+				}
+				trav = trav->next;
+			} 
 		}
 		else
 		{
-			
+			LinearList<int> trav = this->AdjMat.getAdjacent(u);
+			for(int i=0;i<this->vertices_;i++)
+			{
+				if(trav[i] == 1)
+				{
+					int v = i;
+					if(vis[v] == false)
+					{
+						vis[v] = true;
+						q.push(v);
+					}
+				}
+			}
 		}
 	}
 }
-void AbstractGraph :: dfs(void (*work)(const int& ),const int &src = 0)
+void AbstractGraph :: Dfs(void (*work)(const int& ),const int &src = 0)
 {
 	if(src >= this->vertices_)
 		return ;
 	for(int i=0;i<vertices_;i++)
 		vis[i] = false;
 	dfsUtil(work,src);
+	return ;
 	for(int i=0;i<this->vertices_;i++)
 	{
 		if(vis[i] == false)
@@ -52,16 +75,38 @@ void AbstractGraph :: bfsUtil(void (*work)(const int& ),const int &src = 0)
 			continue;
 		if(this->type == List)
 		{
-			
+			Node<int> *trav = this->AdjList.getStart(u);
+			while(trav != NULL)
+			{
+				int v = trav->data;
+				if(vis[v] == false)
+				{
+					vis[v] = true;
+					q.push(v);
+				}
+				trav = trav->next;
+			} 
 		}
 		else
 		{
-
+			LinearList<int> trav = this->AdjMat.getAdjacent(u);
+			for(int i=0;i<this->vertices_;i++)
+			{
+				if(trav[i] == 1)
+				{
+					int v = i;
+					if(vis[v] == false)
+					{
+						vis[v] = true;
+						q.push(v);
+					}
+				}
+			}
 		}
 	}
 }
 
-void AbstractGraph :: bfs(void (*work)(const int& ),const int &src = 0)
+void AbstractGraph :: Bfs(void (*work)(const int& ),const int &src = 0)
 {
 	if(src >= this->vertices_)
 		return ;

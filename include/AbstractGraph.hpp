@@ -34,9 +34,9 @@ namespace cs202
     virtual void remove(int i, int j) = 0;
     virtual int degree(int i) = 0;
     void dfsUtil(void (*work)(const int& ),const int &src);
-    void dfs(void (*work)(const int&),const int &src);
+    void Dfs(void (*work)(const int&),const int &src);
     void bfsUtil(void (*work)(const int&),const int &src);
-    void bfs(void (*work)(const int&),const int &src);
+    void Bfs(void (*work)(const int&),const int &src);
   };
 }
 #endif
