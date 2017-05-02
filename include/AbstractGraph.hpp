@@ -16,6 +16,21 @@ enum GraphType{List,Matrix};
 
 namespace cs202
 {
+  class dfsNode
+  {
+  public: 
+    int pred;
+    int discTime;
+    int finishTime;
+  };
+
+  class bfsNode
+  {
+  public:
+    int pred;
+    int level;
+  };
+
   class AbstractGraph 
   {
   protected:
@@ -23,6 +38,9 @@ namespace cs202
     AdjacencyList AdjList;
     int vertices_;
     LinearList<bool> vis;
+    LinearList<dfsNode> dfsTree;
+    LinearList<bfsNode> bfsTree;
+    int time;
   protected:
     GraphType type;
   public:
@@ -37,6 +55,8 @@ namespace cs202
     void Dfs(void (*work)(const int&),const int &src);
     void bfsUtil(void (*work)(const int&),const int &src);
     void Bfs(void (*work)(const int&),const int &src);
+    LinearList<dfsNode> getDFSTree();
+    LinearList<bfsNode> getBFSTree();
   };
 }
 #endif
