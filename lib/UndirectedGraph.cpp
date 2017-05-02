@@ -114,12 +114,12 @@ void UndirectedGraph :: dfs(void (*work)(const int&),const int &src = 0)
 	this->Dfs(work,src);
 }
 
-LinearList<dfsNode> UndirectedGraph :: getDFStree()
+LinearList<dfsNode> UndirectedGraph :: getDFStree(const int &src = 0)
 {
-	return this->getDFSTree();
+	return this->getDFSTree(src);
 }
 
-LinearList<bfsNode> UndirectedGraph :: getBFStree()
+LinearList<bfsNode> UndirectedGraph :: getBFStree(const int &src = 0)
 {
-	return this->getBFSTree();
+	return this->getBFSTree(src);
 }

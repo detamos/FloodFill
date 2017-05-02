@@ -158,14 +158,40 @@ void empty(const int &i)
 
 }
 
-LinearList<dfsNode> AbstractGraph :: getDFSTree()
+LinearList<dfsNode> AbstractGraph :: getDFSTree(const int &src)
 {
-	this->Dfs(&empty);
+	if(src >= this->vertices_)
+		return dfsTree;
+
+	this->dfsTree.resize(this->vertices_);
+	this->time = 0;
+
+	for(int i=0;i<vertices_;i++)
+	{
+		this->dfsTree[i].pred = -1;
+		this->vis[i] = false;
+	}
+	dfsUtil(&empty,src);
+
 	return dfsTree;
 }
 
-LinearList<bfsNode> AbstractGraph :: getBFSTree()
+LinearList<bfsNode> AbstractGraph :: getBFSTree(const int &src)
 {
-	this->Bfs(&empty);
+	if(src >= this->vertices_)
+		return bfsTree;
+
+	this->bfsTree.resize(this->vertices_);
+	this->time = 0;
+
+	for(int i=0;i<this->vertices_;i++)
+	{
+		this->vis[i] = false;
+		this->bfsTree[i].pred = -1;
+		this->bfsTree[i].level = 0;
+	}
+
+	bfsUtil(&empty,src);
+
 	return bfsTree;
 }

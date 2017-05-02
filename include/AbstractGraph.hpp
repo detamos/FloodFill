@@ -55,8 +55,8 @@ namespace cs202
     void Dfs(void (*work)(const int&),const int &src);
     void bfsUtil(void (*work)(const int&),const int &src);
     void Bfs(void (*work)(const int&),const int &src);
-    LinearList<dfsNode> getDFSTree();
-    LinearList<bfsNode> getBFSTree();
+    LinearList<dfsNode> getDFSTree(const int &src);
+    LinearList<bfsNode> getBFSTree(const int &src);
   };
 }
 #endif
