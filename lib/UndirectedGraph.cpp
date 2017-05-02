@@ -106,10 +106,10 @@ void UndirectedGraph :: print()
 
 void UndirectedGraph :: bfs(void (*work)(const int&),const int &src = 0)
 {
-	this->bfs(work,src);
+	this->Bfs(work,src);
 }
 
 void UndirectedGraph :: dfs(void (*work)(const int&),const int &src = 0)
 {
-	this->dfs(work,src);
+	this->Dfs(work,src);
 }

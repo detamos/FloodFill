@@ -19,7 +19,17 @@ int main()
 	a.add(3,4); b.add(3,4);
 	a.add(1,3); b.add(1,3);
 	a.add(2,4); b.add(2,4);
-	a.print();  
+	a.print(); 
+	cout<<"BFS : ";
+	a.bfs(&print);
+	cout<<"\tDFS : ";
+	a.dfs(&print);
+	cout<<endl;
 	b.print();
+	cout<<"BFS : ";
+	b.bfs(&print);
+	cout<<"\tDFS : ";
+	b.dfs(&print);
+	cout<<endl;
 	return 0;
 }
