@@ -21,6 +21,7 @@ namespace cs202
         list();
         list(const list<T> & x);
         ~list();
+        Node<T>* getStart();
         bool exists(const T &value);
         void append(const T& value);
         inline int length();

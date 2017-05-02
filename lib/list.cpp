@@ -171,3 +171,8 @@ void list<T>::print()
     cout<<endl;
 }
 
+template<class T>
+Node<T>* list<T> :: getStart()
+{
+    return this->start;
+}
